@@ -1,8 +1,8 @@
-\# Troubleshooting Log
+# Troubleshooting Log
 
 
 
-\## Issue 1
+## Issue 1
 
 Problem: DC02 couldn't find corp.local domain
 
@@ -12,7 +12,7 @@ Fix:     Set DNS to 192.168.10.10 on DC02
 
 
 
-\## Issue 2
+## Issue 2
 
 Problem: VMs couldn't communicate
 
@@ -22,7 +22,7 @@ Fix:     Moved both VMs to VMnet1
 
 
 
-\## Issue 3
+## Issue 3
 
 Problem: Replication failing
 
