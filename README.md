@@ -200,7 +200,7 @@ Group Policy, and a domain-joined Windows 10 client.
 
 ### DHCP Scope Active
 
-![DHCP](screenshots/11-dhcp-scope.png)
+![DHCP](screenshots/media11-dhcp-scope.png)
 
 
 
