@@ -193,14 +193,13 @@ Group Policy, and a domain-joined Windows 10 client.
 
 
 ### Users Created in OUs
-
-![Users](screenshots/07-users-created.png)
+![Users](screenshots/07-users-group-members-created.png)
 
 
 
 ### DHCP Scope Active
 
-![DHCP](screenshots/media11-dhcp-scope.png)
+![DHCP](screenshots/11-dhcp-scope.png)
 
 
 
@@ -212,7 +211,7 @@ Group Policy, and a domain-joined Windows 10 client.
 
 ### Replication Healthy
 
-![Replication](screenshots/21-replication-healthy.png)
+![Replication](screenshots/21-repadmin-showrepl.png)
 
 
 
