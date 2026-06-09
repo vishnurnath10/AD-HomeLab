@@ -2,7 +2,7 @@
 
 
 
-\## Overview
+## Overview
 
 Built a fully functional Windows Server 2022 
 
@@ -16,11 +16,11 @@ Group Policy, and a domain-joined Windows 10 client.
 
 
 
-\---
+---
 
 
 
-\## 🗺️ Lab Topology
+## 🗺️ Lab Topology
 
 | Host       | Role                        | IP Address      |
 
@@ -34,73 +34,73 @@ Group Policy, and a domain-joined Windows 10 client.
 
 
 
-\*\*Domain:\*\* corp.local  
+**Domain:** corp.local  
 
-\*\*Network:\*\* 192.168.10.0/24  
+**Network:** 192.168.10.0/24  
 
-\*\*Hypervisor:\*\* VMware Workstation  
+**Hypervisor:** VMware Workstation  
 
-\*\*OS:\*\* Windows Server 2022 + Windows 10 Enterprise
-
-
-
-\---
+**OS:** Windows Server 2022 + Windows 10 Enterprise
 
 
 
-\## 🛠️ What I Built
+---
 
 
 
-\### 1. Active Directory Domain Services
-
-\- Deployed DC01 as primary domain controller
-
-\- Created corp.local forest and domain
-
-\- Built OU structure mirroring real enterprise layout
+## 🛠️ What I Built
 
 
 
-\### 2. Secondary Domain Controller
+### 1. Active Directory Domain Services
 
-\- Deployed DC02 and joined to corp.local
+- Deployed DC01 as primary domain controller
 
-\- Configured AD replication between DC01 and DC02
+- Created corp.local forest and domain
 
-\- Verified replication using repadmin /replsummary
+- Built OU structure mirroring real enterprise layout
 
-\- Intentionally broke replication and restored it
+
+
+### 2. Secondary Domain Controller
+
+- Deployed DC02 and joined to corp.local
+
+- Configured AD replication between DC01 and DC02
+
+- Verified replication using repadmin /replsummary
+
+- Intentionally broke replication and restored it
 
 &#x20; to practice troubleshooting
 
 
 
-\### 3. DNS
+### 3. DNS
 
-\- Configured DC01 as primary DNS server
+- Configured DC01 as primary DNS server
 
-\- DC02 points to DC01 for DNS resolution
+- DC02 points to DC01 for DNS resolution
 
-\- Verified name resolution across all VMs
-
-
-
-\### 4. DHCP
-
-\- Installed DHCP role on DC01
-
-\- Created scope: 192.168.10.100 - 192.168.10.200
-
-\- Reserved .1 to .99 for static server IPs
-
-\- CLIENT01 received IP automatically on boot
+- Verified name resolution across all VMs
 
 
 
-\### 5. Organizational Units + Users
+### 4. DHCP
 
-\- Created OU structure:
+- Installed DHCP role on DC01
+
+- Created scope: 192.168.10.100 - 192.168.10.200
+
+- Reserved .1 to .99 for static server IPs
+
+- CLIENT01 received IP automatically on boot
+
+
+
+### 5. Organizational Units + Users
+
+- Created OU structure:
 
 &#x20; - Departments/IT
 
@@ -114,15 +114,15 @@ Group Policy, and a domain-joined Windows 10 client.
 
 &#x20; - Servers
 
-\- Created 4 domain user accounts
+- Created 4 domain user accounts
 
-\- Created IT-Staff security group
+- Created IT-Staff security group
 
 
 
-\### 6. Group Policy (GPO)
+### 6. Group Policy (GPO)
 
-\- Corp-Password-Policy (domain-wide):
+- Corp-Password-Policy (domain-wide):
 
 &#x20; - Minimum 10 character passwords
 
@@ -132,7 +132,7 @@ Group Policy, and a domain-joined Windows 10 client.
 
 &#x20; - 10 password history
 
-\- IT-Desktop-Policy (IT OU only):
+- IT-Desktop-Policy (IT OU only):
 
 &#x20; - Recycle Bin removed from desktop
 
@@ -140,23 +140,23 @@ Group Policy, and a domain-joined Windows 10 client.
 
 
 
-\### 7. Domain-Joined Client
+### 7. Domain-Joined Client
 
-\- Installed Windows 10 Enterprise
+- Installed Windows 10 Enterprise
 
-\- Joined CLIENT01 to corp.local
+- Joined CLIENT01 to corp.local
 
-\- Logged in as domain user (jsmith)
+- Logged in as domain user (jsmith)
 
-\- Verified GPO applied correctly
-
-
-
-\---
+- Verified GPO applied correctly
 
 
 
-\## 🔧 Troubleshooting Performed
+---
+
+
+
+## 🔧 Troubleshooting Performed
 
 
 
@@ -172,113 +172,113 @@ Group Policy, and a domain-joined Windows 10 client.
 
 
 
-\---
+---
 
 
 
-\## 📸 Screenshots
+## 📸 Screenshots
 
 
 
-\### VMware Network Configuration
+### VMware Network Configuration
 
-!\[VMnet Config](screenshots/01-vmnet-config.png)
-
-
-
-\### Active Directory — OU Structure
-
-!\[OU Structure](screenshots/06-ou-structure.png)
+![VMnet Config](screenshots/01-vmnet-config.png)
 
 
 
-\### Users Created in OUs
+### Active Directory — OU Structure
 
-!\[Users](screenshots/07-users-created.png)
-
-
-
-\### DHCP Scope Active
-
-!\[DHCP](screenshots/11-dhcp-scope.png)
+![OU Structure](screenshots/06-ou-structure.png)
 
 
 
-\### GPO — Password Policy
+### Users Created in OUs
 
-!\[GPO Password](screenshots/14-gpo-password-policy.png)
-
-
-
-\### Replication Healthy
-
-!\[Replication](screenshots/21-replication-healthy.png)
+![Users](screenshots/07-users-created.png)
 
 
 
-\---
+### DHCP Scope Active
+
+![DHCP](screenshots/11-dhcp-scope.png)
 
 
 
-\## 💡 Key Learnings
+### GPO — Password Policy
 
-\- How Active Directory replication works between DCs
+![GPO Password](screenshots/14-gpo-password-policy.png)
 
-\- DNS is critical for domain functionality 
+
+
+### Replication Healthy
+
+![Replication](screenshots/21-replication-healthy.png)
+
+
+
+---
+
+
+
+## 💡 Key Learnings
+
+- How Active Directory replication works between DCs
+
+- DNS is critical for domain functionality 
 
 &#x20; most AD issues trace back to DNS
 
-\- GPOs apply hierarchically — domain level 
+- GPOs apply hierarchically — domain level 
 
 &#x20; affects everyone, OU level affects specific groups
 
-\- Static IPs are essential for servers, 
+- Static IPs are essential for servers, 
 
 &#x20; DHCP for workstations
 
 
 
-\---
+---
 
 
 
-\## 🧰 Technologies Used
+## 🧰 Technologies Used
 
-\- Windows Server 2022
+- Windows Server 2022
 
-\- Active Directory Domain Services
+- Active Directory Domain Services
 
-\- DNS Server
+- DNS Server
 
-\- DHCP Server
+- DHCP Server
 
-\- Group Policy Management
+- Group Policy Management
 
-\- VMware Workstation
+- VMware Workstation
 
-\- repadmin (replication monitoring)
+- repadmin (replication monitoring)
 
-\- Windows 10 Enterprise
-
-
-
-\---
+- Windows 10 Enterprise
 
 
 
-\## 📋 Skills Demonstrated
+---
 
-\- Active Directory administration
 
-\- Domain Controller deployment and promotion
 
-\- DNS and DHCP configuration
+## 📋 Skills Demonstrated
 
-\- Group Policy creation and enforcement
+- Active Directory administration
 
-\- Replication monitoring and troubleshooting
+- Domain Controller deployment and promotion
 
-\- Network planning and documentation
+- DNS and DHCP configuration
+
+- Group Policy creation and enforcement
+
+- Replication monitoring and troubleshooting
+
+- Network planning and documentation
 
 \- Virtual lab environment setup
 
