@@ -1,8 +1,8 @@
-\# Lab Network Plan
+ Lab Network Plan
 
 
 
-\## IP Addressing
+## IP Addressing
 
 | Device   | IP             | Role        |
 
@@ -16,23 +16,23 @@
 
 
 
-\## Subnet
+## Subnet
 
-\- Network: 192.168.10.0/24
+- Network: 192.168.10.0/24
 
-\- Mask: 255.255.255.0
+- Mask: 255.255.255.0
 
-\- DHCP Pool: 192.168.10.100 - .200
+- DHCP Pool: 192.168.10.100 - .200
 
-\- Reserved: 192.168.10.1 - .99
+- Reserved: 192.168.10.1 - .99
 
 
 
-\## Domain
+## Domain
 
-\- Name: corp.local
+- Name: corp.local
 
-\- Forest Level: Windows Server 2016
+- Forest Level: Windows Server 2016
 
 \- DSRM Password: documented securely offline
 
